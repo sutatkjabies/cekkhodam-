@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cek Kodam</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f8ff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+        .container {
+            background: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
+        }
+        h1 {
+            color: #007BFF;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: 600;
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>langsung cek khodam anda</h1>
+        <p>Masukkan nama Anda untuk menemukan kodam yang cocok!</p>
+        <input type="text" id="username" placeholder="Masukkan nama">
+        <button onclick="cekKodam()">Cek Kodam</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function cekKodam() {
+            const nama = document.getElementById('username').value.trim();
+            if (!nama) {
+                document.getElementById('result').textContent = 'Silakan masukkan nama terlebih dahulu.';
+                return;
+            }
+
+            const daftarKodam = [
+                'Kodam naga hardcore',
+                'Kodam semut sumatra ngamuk',
+                'Kodam kura kura ninja',
+                'Kodam ikan gesek',
+                'Kodam upin ipin ',
+                'Kodam kupu kupu Malam',
+                'Kodam ular resing',
+            ];
+
+            // Pilih kodam secara acak
+            const kodam = daftarKodam[Math.floor(Math.random() * daftarKodam.length)];
+            document.getElementById('result').textContent = `${nama}, Kodam Anda adalah: ${kodam}`;
+        }
+    </script>
+</body>
+</html>
